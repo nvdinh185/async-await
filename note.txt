@@ -6,11 +6,21 @@
 * Lưu ý: Một hàm có thể là đồng bộ hoặc bất đồng bộ, muốn biết phải đọc document tại
 https://nodejs.org/api/fs.html
 
-4. CallBack function: Viết hàm add để tính tổng 2 số, có sử dụng callback,
-sau đó sử dụng hàm add() và xử lý err, result
+4. CallBack function: 
+- số lượng, thứ tự tham số của callback do người viết hàm quy định
+- nếu giá trị underfined trong return callback nằm sau thì có thể không cần viết
+- lúc sử dụng phải lưu ý thứ tự các tham số trong callback
 * Lưu ý: sau câu lệnh log thì cộng thêm dấu '' để tránh hiện thông báo lỗi dài dòng
+Ví dụ: Viết hàm add để tính tổng 2 số, có sử dụng callback,
+sau đó sử dụng hàm add() và xử lý err, result
 
-5. CallBack Hell: Viết hàm tính diện tích hình thang, truyền vào tham số a, b, h và 
+5. CallBack Hell: 
+- Có thể sử dụng các hàm callback lồng nhau. khi đó, có thể sử dụng có kết quả của 
+hàm callback trước làm tham số cho hàm callback sau
+- Chú ý thứ tự các tham số của hàm callback
+Ví dụ: 
+- Viết hàm tính chu vi hình chữ nhật, truyền vào tham số a, b, h
+- Viết hàm tính diện tích hình thang, truyền vào tham số a, b, h và 
 hàm cb là một callback function, sử dụng các hàm lồng nhau để tính được kết quả cuối cùng
 
 6. Promise, trả về 2 kết quả là resolve và reject tương ứng với 2 trạng thái thành công
@@ -26,7 +36,8 @@ hàm cb là một callback function, sử dụng các hàm lồng nhau để tí
  8. Promise liên tiếp: có thể sử dụng các Promise liên tiếp nhau,
  khi đó kết quả của câu lệnh trước sẽ dùng làm tham số cho câu lệnh sau,
  Sau cùng là một lệnh catch để bắt ngoại lệ (nếu xảy ra lỗi thì sẽ nhảy đến lệnh này)
- * Lưu ý: Chỉ dụng Promise cho một hàm con trong cùng
+ * Lưu ý: 	- Chỉ dùng Promise cho một hàm con trong cùng
+			- chỉ dùng catch cho hàm ngoài cùng
  
 9. Promise status và Promise value
 - Promise (Status) có 2 trạng thái, đang chờ (pending) và hoàn thành (resolve/reject)
@@ -39,7 +50,7 @@ còn giá trị của Promise trả về chính là bằng giá trị của câu
 của lệnh then sau cùng, và kết quả của lệnh then trước sẽ làm tham số cho lệnh then sau
 
 10. Phương thức resolve và reject
-- Tạo ra các biến Promise trả về phương thức resolve hoặc reject
+- Tạo ra các biến Promise trả về phương thức resolve
 - Tham số truyền vào của resolve có thể là một hàm Promise, khi đó trạng thái của
 biến là pending, nên cần phải xử lý then với nó
 - Nếu phương thức của Promise là reject thì phải xử lý catch với nó
