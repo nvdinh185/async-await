@@ -10,6 +10,7 @@ let add = (a, b, cb) => {
         cb(undefined, a + b);
     }, 1000)
 }
+
 let multiply = (a, b, cb) => {
     setTimeout(() => {
         if (typeof (a) != 'number' || typeof (b) != 'number') {
@@ -18,6 +19,7 @@ let multiply = (a, b, cb) => {
         cb(undefined, a * b);
     }, 1000)
 }
+
 let divide = (a, b, cb) => {
     setTimeout(() => {
         if (typeof (a) != 'number' || typeof (b) != 'number') {

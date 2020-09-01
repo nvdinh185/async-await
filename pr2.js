@@ -1,8 +1,9 @@
 let fs = require("fs");
+
 let add = (a, b) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if(typeof(a)!="number"||typeof(b)!="number"){
+            if(typeof(a) != "number" || typeof(b) != "number"){
                 return reject(new Error("Tham so phai co kieu number!"));
             }
             resolve(a+b);
@@ -10,7 +11,7 @@ let add = (a, b) => {
     })
 }
 
-add(4, '5')
+add(4, 5)
 .then(res => console.log(res), err => console.log(err + ''))
 
 /* fs.readFile('./a.txt', 'utf8', (err, data) => {
@@ -25,18 +26,18 @@ let promiseRead = new Promise((resolve, reject) => {
     })
 });
 
-/* promiseRead
+promiseRead
 .then(data => console.log(data))
-.catch(err => console.log(err + '')) */
+.catch(err => console.log(err + ''))
 
 let read = (filename) => {
     return new Promise((resolve, reject) => {
         fs.readFile(filename, 'utf8', (err, data) => {
             if(err) return reject(err);
             resolve(data);
-        }) 
+        })
     })
 }
 
-read('./a.txt').then(data => console.log(data))
-.catch(err => console.log(err + ''))
+// read('./a.txt').then(data => console.log(data))
+// .catch(err => console.log(err + ''))

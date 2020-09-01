@@ -7,4 +7,3 @@ let aPromise = new Promise((resolve, reject) => {
 
 aPromise.then(msg => console.log("Da thuc thi " + msg),
     (errMsg) => console.log(errMsg + ''));
-

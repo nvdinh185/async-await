@@ -1,6 +1,6 @@
 let add = (a, b, cb) => {
     setTimeout(() => {
-        if (typeof (a) != 'number' || typeof (b) != 'number') {
+        if (typeof a != 'number' || typeof b != 'number') {
             return cb(new Error('Tham so phai co kieu number'));
         }
         cb(undefined, a + b);
@@ -9,5 +9,5 @@ let add = (a, b, cb) => {
 
 add(4, 5, (err, result) => {
     if (err) return console.log("Loi: " + err);
-    console.log("Ket qua: "+result);
+    console.log("Ket qua: " + result);
 })
